@@ -8,8 +8,7 @@ const statusColumns: { key: ServiceOrderStatus; title: string }[] = [
   { key: 'in_progress', title: 'Em Andamento' },
   { key: 'done', title: 'Finalizado' },
 ]
-
-function DashboardPage() {
+const DashboardPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([])
   const [clients, setClients] = useState<Client[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -24,7 +23,7 @@ function DashboardPage() {
       .finally(() => setIsLoading(false))
   }, [])
 
-  function clientName(id: string) {
+  function clientName(id: number) {
     return clients.find((client) => client.id === id)?.name ?? 'Cliente desconhecido'
   }
 

@@ -9,7 +9,7 @@ const statusColumns: { key: ServiceOrderStatus; title: string }[] = [
   { key: 'done', title: 'Finalizado' },
 ]
 
-function ServiceOrdersPage() {
+const ServiceOrdersPage = () => {
   const [orders, setOrders] = useState<ServiceOrder[]>([])
   const [clients, setClients] = useState<Client[]>([])
   const [isLoading, setIsLoading] = useState(true)
@@ -57,13 +57,13 @@ function ServiceOrdersPage() {
       })
   }
 
-  function handleDelete(id: string) {
+  function handleDelete(id: number) {
     api.delete(`/service-orders/${id}`).then(() => {
       setOrders(orders.filter((order) => order.id !== id))
     })
   }
 
-  function clientName(id: string) {
+  function clientName(id: number) {
     return clients.find((client) => client.id === id)?.name ?? 'Cliente desconhecido'
   }
 

@@ -1,4 +1,4 @@
-function Header() {
+const Header = () => {
   return (
     <header className="px-8 py-8">
       <h1 className="text-5xl font-bold text-primary-dark">iRepair</h1>

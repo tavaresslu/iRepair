@@ -1,7 +1,7 @@
 export interface Client {
   id: number
   name: string
-  phone: number
+  phone: string
   email: string
   created_at: string
 }

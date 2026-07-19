@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import api from '../services/api'
 import type { Client, NewClient } from '../types/Client'
 
-function ClientsPage() {
+const ClientsPage = () => {
   const [clients, setClients] = useState<Client[]>([])
   const [isLoading, setIsLoading] = useState(true)
 
@@ -36,7 +36,7 @@ function ClientsPage() {
     })
   }
 
-  function handleDelete(id: string) {
+  function handleDelete(id: number) {
     api.delete(`/clients/${id}`).then(() => {
       setClients(clients.filter((client) => client.id !== id))
     })

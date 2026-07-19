@@ -1,6 +1,6 @@
 import { NavLink } from 'react-router-dom'
 
-function Nav() {
+const Nav = () => {
   const linkClass = ({ isActive }: { isActive: boolean }) =>
     `px-4 py-3 rounded-xl text-sm font-semibold transition ${
       isActive ? 'bg-primary-dark text-white' : 'text-gray-500 hover:bg-primary'
