@@ -1,10 +1,8 @@
 import axios from 'axios'
 
 const api = axios.create({
-  baseURL: 'https://trainee.fidelis.workers.dev/api',
-  headers: {
-    Authorization: `Bearer 1c4a2da0-acf4-496d-821c-7b806e8a96d2`,
-  },
+  baseURL: 'http://localhost:3333',
+  withCredentials: true,
 })
 
 export default api
