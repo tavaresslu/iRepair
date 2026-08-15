@@ -20,12 +20,34 @@ export default function LoginPage() {
   }
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h1>Login</h1>
-      {error && <p style={{ color: 'red' }}>{error}</p>}
-      <input type="email" placeholder="Email" value={email} onChange={(e) => setEmail(e.target.value)} />
-      <input type="password" placeholder="Senha" value={password} onChange={(e) => setPassword(e.target.value)} />
-      <button type="submit">Entrar</button>
-    </form>
+    <div className="min-h-screen bg-violet-50 flex items-center justify-center">
+      <form
+        onSubmit={handleSubmit}
+        className="bg-white rounded-2xl shadow-md p-6 space-y-3 max-w-sm w-full"
+      >
+        <h1 className="font-bold text-lg text-gray-800">Login</h1>
+        {error && <p className="text-red-500 text-sm">{error}</p>}
+        <input
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm"
+        />
+        <input
+          type="password"
+          placeholder="Senha"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          className="w-full border border-gray-200 rounded-xl px-3 py-2 text-sm"
+        />
+        <button
+          type="submit"
+          className="bg-primary text-white font-semibold px-5 py-2 rounded-full hover:bg-primary-dark transition"
+        >
+          Entrar
+        </button>
+      </form>
+    </div>
   );
 }
