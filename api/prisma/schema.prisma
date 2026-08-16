@@ -1,0 +1,31 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model User {
+  id       Int    @id @default(autoincrement())
+  name     String
+  email    String @unique
+  password String
+}
+
+model Client {
+  id            Int            @id @default(autoincrement())
+  name          String
+  phone         String?
+  serviceOrders ServiceOrder[]
+}
+
+model ServiceOrder {
+  id        Int      @id @default(autoincrement())
+  device    String
+  issue     String
+  status    String   @default("aberta")
+  clientId  Int
+  client    Client   @relation(fields: [clientId], references: [id])
+  createdAt DateTime @default(now())
+}

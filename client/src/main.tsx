@@ -3,14 +3,22 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 import './index.css'
 import RootLayout from './layouts/RootLayout.tsx'
-import DashboardPage from './pages/DashboardPage.tsx'
-import ClientsPage from './pages/ClientsPage.tsx'
-import ServiceOrdersPage from './pages/ServiceOrdersPage.tsx'
+import DashboardPage from './pages/dashboardPage.tsx'
+import ClientsPage from './pages/clientsPage.tsx'
+import ServiceOrdersPage from './pages/serviceordersPage.tsx'
+import LoginPage from './pages/LoginPage.tsx'
+import { AuthProvider } from './context/AuthContext.tsx'
+import { PrivateRoute } from './components/PrivateRoute.tsx'
 
 const router = createBrowserRouter([
+  { path: '/login', element: <LoginPage /> },
   {
     path: '/',
-    element: <RootLayout />,
+    element: (
+      <PrivateRoute>
+        <RootLayout />
+      </PrivateRoute>
+    ),
     children: [
       { index: true, element: <DashboardPage /> },
       { path: 'clients', element: <ClientsPage /> },
@@ -21,6 +29,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>,
 )

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../services/api'
-import type { Client, NewClient } from '../types/Client'
+import type { Client, NewClient } from '../types/client'
 
 const ClientsPage = () => {
   const [clients, setClients] = useState<Client[]>([])
