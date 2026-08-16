@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import api from '../services/api'
-import type { Client } from '../types/Client'
+import type { Client } from '../types/client'
 import type { ServiceOrder, ServiceOrderStatus } from '../types/ServiceOrder'
 
 const statusColumns: { key: ServiceOrderStatus; title: string }[] = [

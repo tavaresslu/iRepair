@@ -1,7 +1,6 @@
 import { Outlet } from 'react-router-dom'
 import Header from '../components/Header'
-import Nav from '../components/Nav'
-
+import Nav from '../components/nav'
 const RootLayout = () => {
   return (
     <div className="min-h-screen bg-background">
